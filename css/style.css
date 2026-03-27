@@ -1,0 +1,394 @@
+/* ============================================
+   FILMX - Luxury Car Protection Landing Page
+   ============================================ */
+
+:root {
+  --color-bg-primary: #0a0a0f;
+  --color-bg-secondary: #0d1b2a;
+  --color-accent: #b0b0b0;
+  --color-accent-light: #d4d4d4;
+  --color-text-primary: #f0f0f0;
+  --color-text-secondary: #8a8a8a;
+  --color-glass-bg: rgba(255, 255, 255, 0.05);
+  --color-glass-border: rgba(176, 176, 176, 0.3);
+  --color-glass-glow: rgba(176, 176, 176, 0.15);
+  --font-heading: 'Cairo', sans-serif;
+  --font-body: 'Tajawal', sans-serif;
+}
+
+/* Reset */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ============================================
+   Hero Section
+   ============================================ */
+#hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem 1.5rem;
+  position: relative;
+  background: radial-gradient(ellipse at 50% 30%, #0d1b2a 0%, #0a0a0f 70%);
+  overflow: hidden;
+}
+
+#hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 30% 40%, rgba(176, 176, 176, 0.03) 0%, transparent 50%),
+              radial-gradient(circle at 70% 60%, rgba(176, 176, 176, 0.02) 0%, transparent 50%);
+  animation: shimmer 8s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes shimmer {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  100% { transform: translate(2%, 1%) rotate(1deg); }
+}
+
+.logo {
+  margin-bottom: 2rem;
+}
+
+.logo svg {
+  width: clamp(180px, 40vw, 320px);
+  height: auto;
+}
+
+#hero h1 {
+  font-size: clamp(1.6rem, 5vw, 3.2rem);
+  font-weight: 900;
+  margin-bottom: 1rem;
+  color: var(--color-text-primary);
+  line-height: 1.4;
+}
+
+#hero h2 {
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  font-weight: 400;
+  color: var(--color-text-secondary);
+  font-family: var(--font-body);
+}
+
+.hero-divider {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(to left, transparent, var(--color-accent), transparent);
+  margin: 2rem auto;
+}
+
+/* ============================================
+   Contact Hub Section
+   ============================================ */
+#contact {
+  padding: 4rem 1.5rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+#contact h2 {
+  text-align: center;
+  font-size: clamp(1.3rem, 3.5vw, 2rem);
+  margin-bottom: 2.5rem;
+  color: var(--color-accent-light);
+}
+
+.buttons-hub {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.glass-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1.1rem 2rem;
+  background: var(--color-glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--color-glass-border);
+  border-radius: 16px;
+  box-shadow: 0 0 20px var(--color-glass-glow),
+              inset 0 0 20px rgba(255, 255, 255, 0.02);
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.glass-btn:hover {
+  border-color: rgba(176, 176, 176, 0.6);
+  box-shadow: 0 0 30px rgba(176, 176, 176, 0.25),
+              inset 0 0 30px rgba(255, 255, 255, 0.05);
+  transform: translateY(-3px);
+}
+
+.glass-btn:active {
+  transform: translateY(-1px);
+}
+
+.glass-btn--primary {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(212, 212, 212, 0.5);
+  font-weight: 700;
+  font-size: 1.15rem;
+  padding: 1.3rem 2rem;
+}
+
+.glass-btn--primary:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(212, 212, 212, 0.8);
+  box-shadow: 0 0 40px rgba(212, 212, 212, 0.3),
+              inset 0 0 30px rgba(255, 255, 255, 0.08);
+}
+
+.btn-emoji {
+  font-size: 1.4rem;
+}
+
+/* ============================================
+   Portfolio Section
+   ============================================ */
+#portfolio {
+  padding: 4rem 1.5rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+#portfolio h2 {
+  text-align: center;
+  font-size: clamp(1.3rem, 3.5vw, 2rem);
+  margin-bottom: 0.5rem;
+}
+
+.portfolio-subtitle {
+  text-align: center;
+  color: var(--color-text-secondary);
+  margin-bottom: 2.5rem;
+  font-size: 0.95rem;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.portfolio-card {
+  aspect-ratio: 4/3;
+  border-radius: 12px;
+  border: 1px solid rgba(176, 176, 176, 0.12);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.portfolio-card:nth-child(1) {
+  background: linear-gradient(135deg, #0d1b2a 0%, #1a1a2e 50%, #16213e 100%);
+}
+.portfolio-card:nth-child(2) {
+  background: linear-gradient(135deg, #1a1a2e 0%, #0d1b2a 50%, #0f3460 100%);
+}
+.portfolio-card:nth-child(3) {
+  background: linear-gradient(135deg, #16213e 0%, #0a0a0f 50%, #1a1a2e 100%);
+}
+.portfolio-card:nth-child(4) {
+  background: linear-gradient(135deg, #0f3460 0%, #16213e 50%, #0d1b2a 100%);
+}
+
+.portfolio-card svg {
+  width: 60%;
+  height: auto;
+  opacity: 0.15;
+}
+
+.portfolio-card .card-label {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+  background: rgba(0, 0, 0, 0.5);
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.portfolio-cta {
+  display: block;
+  text-align: center;
+  padding: 1rem 2rem;
+  background: var(--color-glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--color-glass-border);
+  border-radius: 16px;
+  color: var(--color-accent-light);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+
+.portfolio-cta:hover {
+  border-color: rgba(176, 176, 176, 0.6);
+  box-shadow: 0 0 25px rgba(176, 176, 176, 0.2);
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   Footer
+   ============================================ */
+#footer {
+  padding: 3rem 1.5rem;
+  background: #050508;
+  text-align: center;
+  border-top: 1px solid rgba(176, 176, 176, 0.08);
+}
+
+.footer-logo svg {
+  width: 120px;
+  height: auto;
+  margin-bottom: 1.5rem;
+}
+
+#footer p {
+  color: var(--color-text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.8;
+  max-width: 400px;
+  margin: 0 auto 2rem;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.social-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid rgba(176, 176, 176, 0.2);
+  transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+  border-color: rgba(176, 176, 176, 0.5);
+  box-shadow: 0 0 15px rgba(176, 176, 176, 0.15);
+  transform: translateY(-2px);
+}
+
+.social-icons svg {
+  width: 22px;
+  height: 22px;
+  fill: var(--color-accent);
+}
+
+.copyright {
+  margin-top: 2rem;
+  font-size: 0.8rem;
+  color: rgba(138, 138, 138, 0.5);
+}
+
+/* ============================================
+   Scroll Animations
+   ============================================ */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger children */
+.buttons-hub .glass-btn:nth-child(1) { transition-delay: 0s; }
+.buttons-hub .glass-btn:nth-child(2) { transition-delay: 0.1s; }
+.buttons-hub .glass-btn:nth-child(3) { transition-delay: 0.2s; }
+.buttons-hub .glass-btn:nth-child(4) { transition-delay: 0.3s; }
+
+.portfolio-grid .portfolio-card:nth-child(1) { transition-delay: 0s; }
+.portfolio-grid .portfolio-card:nth-child(2) { transition-delay: 0.1s; }
+.portfolio-grid .portfolio-card:nth-child(3) { transition-delay: 0.15s; }
+.portfolio-grid .portfolio-card:nth-child(4) { transition-delay: 0.2s; }
+
+/* ============================================
+   Responsive
+   ============================================ */
+@media (min-width: 768px) {
+  #contact {
+    max-width: 500px;
+  }
+
+  .portfolio-grid {
+    gap: 1.25rem;
+  }
+
+  #portfolio {
+    max-width: 600px;
+  }
+}
+
+@media (min-width: 1024px) {
+  #contact {
+    max-width: 550px;
+  }
+
+  #portfolio {
+    max-width: 700px;
+  }
+
+  .portfolio-grid {
+    gap: 1.5rem;
+  }
+}
